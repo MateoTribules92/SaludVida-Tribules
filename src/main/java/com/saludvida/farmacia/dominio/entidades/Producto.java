@@ -17,12 +17,13 @@ public class Producto {
     private final boolean activo;
     private final LocalDateTime fechaCreacion;
     private final LocalDateTime fechaActualizacion;
+    private final BigDecimal pesoKg;
 
     public Producto(long idProducto, String codigo, String nombre,
                     String descripcion, long idCategoria, long idProveedor,
                     BigDecimal precio, LocalDate fechaCaducidad,
                     boolean activo, LocalDateTime fechaCreacion,
-                    LocalDateTime fechaActualizacion) {
+                    LocalDateTime fechaActualizacion, BigDecimal pesoKg) {
         this.idProducto = idProducto;
         this.codigo = codigo;
         this.nombre = nombre;
@@ -34,6 +35,7 @@ public class Producto {
         this.activo = activo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.pesoKg = pesoKg;
     }
 
     public long getIdProducto() { return idProducto; }
@@ -47,4 +49,5 @@ public class Producto {
     public boolean isActivo() { return activo; }
     public LocalDateTime getFechaCreacion() { return fechaCreacion; }
     public LocalDateTime getFechaActualizacion() { return fechaActualizacion; }
+    public BigDecimal getPesoKg() { return pesoKg; }
 }
