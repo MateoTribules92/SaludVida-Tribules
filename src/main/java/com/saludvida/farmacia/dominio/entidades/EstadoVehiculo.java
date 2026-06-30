@@ -3,7 +3,7 @@ package com.saludvida.farmacia.dominio.entidades;
 public enum EstadoVehiculo {
 	
 	DISPONIBLE,
-    EN_RUTA,
+    OCUPADO,
     MANTENIMIENTO,
-    FUERA_DE_SERVICIO
+    INACTIVO
 }
