@@ -18,6 +18,6 @@ public interface IInventarioRepositorio {
 
 	    List<Inventario> listarTodos();
 
-	    
+	    List<Inventario> buscarConStockBajo();
 
 }

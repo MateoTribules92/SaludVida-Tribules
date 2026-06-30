@@ -1,0 +1,72 @@
+package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
+import com.saludvida.farmacia.dominio.entidades.Inventario;
+import com.saludvida.farmacia.dominio.repositorio.IInventarioRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IInventarioJpaMapper;
+import com.saludvida.farmacia.infraestructura.repositorios.IInventarioJpaRepository;
+
+@Repository
+public final class InventarioRepositorioImpl
+        implements IInventarioRepositorio {
+
+    private final IInventarioJpaRepository jpaRepository;
+    private final IInventarioJpaMapper mapper;
+
+    public InventarioRepositorioImpl(
+            IInventarioJpaRepository jpaRepository,
+            IInventarioJpaMapper mapper) {
+        this.jpaRepository = jpaRepository;
+        this.mapper = mapper;
+    }
+
+    @Override
+    public Inventario guardar(Inventario inventario) {
+        return mapper.toDomain(
+                jpaRepository.save(mapper.toEntity(inventario)));
+    }
+
+    @Override
+    public Optional<Inventario> buscarPorId(long id) {
+        return jpaRepository.findById(Math.toIntExact(id))
+                .map(mapper::toDomain);
+    }
+
+    @Override
+    public Optional<Inventario> buscarPorFarmaciaYProducto(
+            long idFarmacia,
+            long idProducto) {
+        return jpaRepository
+                .findByFarmacia_IdFarmaciaAndProducto_IdProducto(
+                    Math.toIntExact(idFarmacia),
+                    Math.toIntExact(idProducto))
+                .map(mapper::toDomain);
+    }
+
+    @Override
+    public List<Inventario> buscarPorFarmacia(long idFarmacia) {
+        return jpaRepository
+                .findByFarmacia_IdFarmacia(Math.toIntExact(idFarmacia))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Inventario> buscarConStockBajo() {
+        return jpaRepository.buscarInventariosConStockBajo()
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Inventario> listarTodos() {
+        return jpaRepository.findAll().stream()
+                .map(mapper::toDomain).toList();
+    }
+}

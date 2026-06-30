@@ -22,5 +22,13 @@ public interface IRutaRepositorio {
     List<Ruta> listarTodos();
 
     void cambiarEstado(long id, EstadoRuta estado);
+    
+    boolean existeRutaActivaPorVehiculoYFecha(
+            long idVehiculo,
+            LocalDate fecha);
+
+    boolean existeRutaActivaPorDistribuidorYFecha(
+            long idDistribuidor,
+            LocalDate fecha);
 
 }

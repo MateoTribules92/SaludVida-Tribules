@@ -2,6 +2,8 @@ package com.saludvida.farmacia.dominio.repositorio;
 
 import java.util.List;
 import java.util.Optional;
+
+
 import com.saludvida.farmacia.dominio.entidades.Usuario;
 
 public interface IUsuarioRepositorio {
@@ -15,5 +17,7 @@ public interface IUsuarioRepositorio {
 	    List<Usuario> listarTodos();
 
 	    void cambiarEstadoActivo(long id, boolean activo);
+	    
+	    List<Usuario> listarActivos();
 
 }

@@ -19,5 +19,7 @@ public interface IVehiculoRepositorio {
 	    List<Vehiculo> listarTodos();
 
 	    void cambiarEstadoActivo(long id, boolean activo);
+	    
+	    List<Vehiculo> listarActivos();
 
 }

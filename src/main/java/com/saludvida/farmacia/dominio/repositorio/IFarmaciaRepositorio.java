@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.Farmacia;
 
+
 public interface IFarmaciaRepositorio {
 
 	  Farmacia guardar(Farmacia farmacia);
@@ -17,4 +18,6 @@ public interface IFarmaciaRepositorio {
 	    List<Farmacia> listarTodos();
 
 	    void cambiarEstadoActivo(long id, boolean activo);
+	    
+	    List<Farmacia> listarActivos();
 }
