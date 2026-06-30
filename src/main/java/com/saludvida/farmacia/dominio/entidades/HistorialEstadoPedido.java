@@ -8,13 +8,13 @@ public class HistorialEstadoPedido {
 	    private final long idPedido;
 	    private final EstadoPedido estadoAnterior;
 	    private final EstadoPedido estadoNuevo;
-	    private final long idUsuario;
+	    private final Long  idUsuario;
 	    private final String observacion;
 	    private final LocalDateTime fechaRegistro;
 
 	    public HistorialEstadoPedido(long idHistorial, long idPedido,
 	                                 EstadoPedido estadoAnterior,
-	                                 EstadoPedido estadoNuevo, long idUsuario,
+	                                 EstadoPedido estadoNuevo, Long  idUsuario,
 	                                 String observacion,
 	                                 LocalDateTime fechaRegistro) {
 	        this.idHistorial = idHistorial;
@@ -30,7 +30,7 @@ public class HistorialEstadoPedido {
 	    public long getIdPedido() { return idPedido; }
 	    public EstadoPedido getEstadoAnterior() { return estadoAnterior; }
 	    public EstadoPedido getEstadoNuevo() { return estadoNuevo; }
-	    public long getIdUsuario() { return idUsuario; }
+	    public Long  getIdUsuario() { return idUsuario; }
 	    public String getObservacion() { return observacion; }
 	    public LocalDateTime getFechaRegistro() { return fechaRegistro; }
 

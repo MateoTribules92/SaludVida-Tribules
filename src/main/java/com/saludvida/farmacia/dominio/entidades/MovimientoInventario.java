@@ -6,14 +6,14 @@ public class MovimientoInventario {
 	
 	private final long idMovimiento;
     private final long idInventario;
-    private final long idUsuario;
+    private final Long  idUsuario;
     private final TipoMovimiento tipoMovimiento;
     private final int cantidad;
     private final String motivo;
     private final LocalDateTime fechaMovimiento;
 
     public MovimientoInventario(long idMovimiento, long idInventario,
-                                long idUsuario, TipoMovimiento tipoMovimiento,
+    		Long  idUsuario, TipoMovimiento tipoMovimiento,
                                 int cantidad, String motivo,
                                 LocalDateTime fechaMovimiento) {
         this.idMovimiento = idMovimiento;
@@ -27,7 +27,7 @@ public class MovimientoInventario {
 
     public long getIdMovimiento() { return idMovimiento; }
     public long getIdInventario() { return idInventario; }
-    public long getIdUsuario() { return idUsuario; }
+    public Long  getIdUsuario() { return idUsuario; }
     public TipoMovimiento getTipoMovimiento() { return tipoMovimiento; }
     public int getCantidad() { return cantidad; }
     public String getMotivo() { return motivo; }

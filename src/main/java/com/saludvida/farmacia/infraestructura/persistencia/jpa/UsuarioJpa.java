@@ -42,4 +42,13 @@ public class UsuarioJpa {
     @Column(name = "fecha_actualizacion", nullable = false,
             insertable = false, updatable = false)
     private LocalDateTime fechaActualizacion;
+    
+    public RolJpa getRol() {
+        return rol;
+    }
+
+    public void setRol(RolJpa rol) {
+        this.rol = rol;
+    }
+    
 }

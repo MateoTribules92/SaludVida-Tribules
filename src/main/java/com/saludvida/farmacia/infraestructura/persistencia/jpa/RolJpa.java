@@ -3,13 +3,13 @@ package com.saludvida.farmacia.infraestructura.persistencia.jpa;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "roles", schema = "saludvida")
-
 public class RolJpa {
 	
 	 @Id
@@ -28,4 +28,13 @@ public class RolJpa {
 
 	    @Column(nullable = false)
 	    private Boolean activo;
+
+
+	    public Integer getIdRol() {
+	        return idRol;
+	    }
+
+	    public void setIdRol(Integer idRol) {
+	        this.idRol = idRol;
+	    }
 }
