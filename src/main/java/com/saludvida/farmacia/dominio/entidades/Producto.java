@@ -23,7 +23,7 @@ public class Producto {
                     String descripcion, long idCategoria, long idProveedor,
                     BigDecimal precio, LocalDate fechaCaducidad,
                     boolean activo, LocalDateTime fechaCreacion,
-                    LocalDateTime fechaActualizacion, BigDecimal pesoKg) {
+                    LocalDateTime fechaActualizacion) {
         this.idProducto = idProducto;
         this.codigo = codigo;
         this.nombre = nombre;
