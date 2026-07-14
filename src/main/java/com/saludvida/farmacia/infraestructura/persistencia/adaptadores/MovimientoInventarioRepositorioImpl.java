@@ -8,6 +8,7 @@ import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.MovimientoInventario;
 import com.saludvida.farmacia.dominio.entidades.TipoMovimiento;
 import com.saludvida.farmacia.dominio.repositorio.IMovimientoInventarioRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.MovimientoInventarioJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IMovimientoInventarioJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IMovimientoInventarioJpaRepository;
 
@@ -26,10 +27,14 @@ public final class MovimientoInventarioRepositorioImpl
     }
 
     @Override
-    public MovimientoInventario guardar(
-            MovimientoInventario movimiento) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(movimiento)));
+    public MovimientoInventario guardar(MovimientoInventario movimientoInventario) {
+        MovimientoInventarioJpa entity = mapper.toEntity(movimientoInventario);
+
+        if (entity.getIdMovimiento() != null && entity.getIdMovimiento() == 0) {
+            entity.setIdMovimiento(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Producto;
 import com.saludvida.farmacia.dominio.repositorio.IProductoRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.ProductoJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IProductoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IProductoJpaRepository;
 
@@ -27,8 +28,13 @@ public final class ProductoRepositorioImpl
 
     @Override
     public Producto guardar(Producto producto) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(producto)));
+        ProductoJpa entity = mapper.toEntity(producto);
+
+        if (entity.getIdProducto() != null && entity.getIdProducto() == 0) {
+            entity.setIdProducto(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Categoria;
 import com.saludvida.farmacia.dominio.repositorio.ICategoriaRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.CategoriaJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.ICategoriaJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.ICategoriaJpaRepository;
 
@@ -26,8 +27,13 @@ public final class CategoriaRepositorioImpl
 
     @Override
     public Categoria guardar(Categoria categoria) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(categoria)));
+        CategoriaJpa entity = mapper.toEntity(categoria);
+
+        if (entity.getIdCategoria() != null && entity.getIdCategoria() == 0) {
+            entity.setIdCategoria(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

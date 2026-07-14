@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Proveedor;
 import com.saludvida.farmacia.dominio.repositorio.IProveedorRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.ProveedorJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IProveedorJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IProveedorJpaRepository;
 
@@ -26,8 +27,13 @@ public final class ProveedorRepositorioImpl
 
     @Override
     public Proveedor guardar(Proveedor proveedor) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(proveedor)));
+        ProveedorJpa entity = mapper.toEntity(proveedor);
+
+        if (entity.getIdProveedor() != null && entity.getIdProveedor() == 0) {
+            entity.setIdProveedor(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

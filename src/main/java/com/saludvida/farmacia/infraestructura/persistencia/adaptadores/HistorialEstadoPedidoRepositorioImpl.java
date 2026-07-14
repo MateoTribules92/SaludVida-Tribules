@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.HistorialEstadoPedido;
 import com.saludvida.farmacia.dominio.repositorio.IHistorialEstadoPedidoRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.HistorialEstadoPedidoJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IHistorialEstadoPedidoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IHistorialEstadoPedidoJpaRepository;
 
@@ -25,10 +26,14 @@ public final class HistorialEstadoPedidoRepositorioImpl
     }
 
     @Override
-    public HistorialEstadoPedido guardar(
-            HistorialEstadoPedido historial) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(historial)));
+    public HistorialEstadoPedido guardar(HistorialEstadoPedido historialEstadoPedido) {
+        HistorialEstadoPedidoJpa entity = mapper.toEntity(historialEstadoPedido);
+
+        if (entity.getIdHistorial() != null && entity.getIdHistorial() == 0) {
+            entity.setIdHistorial(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

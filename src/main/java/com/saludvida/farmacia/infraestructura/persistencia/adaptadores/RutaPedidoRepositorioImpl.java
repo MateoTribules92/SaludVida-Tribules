@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.RutaPedido;
 import com.saludvida.farmacia.dominio.repositorio.IRutaPedidoRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.RutaPedidoJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IRutaPedidoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IRutaPedidoJpaRepository;
 
@@ -26,8 +27,13 @@ public final class RutaPedidoRepositorioImpl
 
     @Override
     public RutaPedido guardar(RutaPedido rutaPedido) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(rutaPedido)));
+        RutaPedidoJpa entity = mapper.toEntity(rutaPedido);
+
+        if (entity.getIdRutaPedido() != null && entity.getIdRutaPedido() == 0) {
+            entity.setIdRutaPedido(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

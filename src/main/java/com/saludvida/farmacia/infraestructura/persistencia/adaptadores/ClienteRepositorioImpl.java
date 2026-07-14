@@ -8,6 +8,7 @@ import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.ClasificacionCliente;
 import com.saludvida.farmacia.dominio.entidades.Cliente;
 import com.saludvida.farmacia.dominio.repositorio.IClienteRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.ClienteJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IClienteJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IClienteJpaRepository;
 
@@ -27,8 +28,13 @@ public final class ClienteRepositorioImpl
 
     @Override
     public Cliente guardar(Cliente cliente) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(cliente)));
+        ClienteJpa entity = mapper.toEntity(cliente);
+
+        if (entity.getIdCliente() != null && entity.getIdCliente() == 0) {
+            entity.setIdCliente(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

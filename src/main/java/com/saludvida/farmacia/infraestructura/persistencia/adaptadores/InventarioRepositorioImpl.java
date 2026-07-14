@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Inventario;
 import com.saludvida.farmacia.dominio.repositorio.IInventarioRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.InventarioJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IInventarioJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IInventarioJpaRepository;
 
@@ -26,8 +27,13 @@ public final class InventarioRepositorioImpl
 
     @Override
     public Inventario guardar(Inventario inventario) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(inventario)));
+        InventarioJpa entity = mapper.toEntity(inventario);
+
+        if (entity.getIdInventario() != null && entity.getIdInventario() == 0) {
+            entity.setIdInventario(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

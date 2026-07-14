@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Usuario;
 import com.saludvida.farmacia.dominio.repositorio.IUsuarioRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.UsuarioJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IUsuarioJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IUsuarioJpaRepository;
 
@@ -26,8 +27,13 @@ public final class UsuarioRepositorioImpl
 
     @Override
     public Usuario guardar(Usuario usuario) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(usuario)));
+        UsuarioJpa entity = mapper.toEntity(usuario);
+
+        if (entity.getIdUsuario() != null && entity.getIdUsuario() == 0) {
+            entity.setIdUsuario(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

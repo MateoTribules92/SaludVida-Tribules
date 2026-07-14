@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.Rol;
 import com.saludvida.farmacia.dominio.repositorio.IRolRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.RolJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IRolJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IRolJpaRepository;
 
@@ -25,7 +26,13 @@ public final class RolRepositorioImpl implements IRolRepositorio {
 
     @Override
     public Rol guardar(Rol rol) {
-        return mapper.toDomain(jpaRepository.save(mapper.toEntity(rol)));
+        RolJpa entity = mapper.toEntity(rol);
+
+        if (entity.getIdRol() != null && entity.getIdRol() == 0) {
+            entity.setIdRol(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

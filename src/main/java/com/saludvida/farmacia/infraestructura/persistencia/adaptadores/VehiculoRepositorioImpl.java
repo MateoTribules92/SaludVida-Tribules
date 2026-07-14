@@ -8,6 +8,7 @@ import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.EstadoVehiculo;
 import com.saludvida.farmacia.dominio.entidades.Vehiculo;
 import com.saludvida.farmacia.dominio.repositorio.IVehiculoRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.VehiculoJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IVehiculoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IVehiculoJpaRepository;
 
@@ -27,8 +28,13 @@ public final class VehiculoRepositorioImpl
 
     @Override
     public Vehiculo guardar(Vehiculo vehiculo) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(vehiculo)));
+        VehiculoJpa entity = mapper.toEntity(vehiculo);
+
+        if (entity.getIdVehiculo() != null && entity.getIdVehiculo() == 0) {
+            entity.setIdVehiculo(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override

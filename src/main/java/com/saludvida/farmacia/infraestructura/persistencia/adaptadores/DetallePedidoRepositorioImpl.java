@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.saludvida.farmacia.dominio.entidades.DetallePedido;
 import com.saludvida.farmacia.dominio.repositorio.IDetallePedidoRepositorio;
+import com.saludvida.farmacia.infraestructura.persistencia.jpa.DetallePedidoJpa;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IDetallePedidoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IDetallePedidoJpaRepository;
 
@@ -25,9 +26,14 @@ public final class DetallePedidoRepositorioImpl
     }
 
     @Override
-    public DetallePedido guardar(DetallePedido detalle) {
-        return mapper.toDomain(
-                jpaRepository.save(mapper.toEntity(detalle)));
+    public DetallePedido guardar(DetallePedido detallePedido) {
+        DetallePedidoJpa entity = mapper.toEntity(detallePedido);
+
+        if (entity.getIdDetalle() != null && entity.getIdDetalle() == 0) {
+            entity.setIdDetalle(null);
+        }
+
+        return mapper.toDomain(jpaRepository.save(entity));
     }
 
     @Override
