@@ -59,4 +59,10 @@ public final class CategoriaRepositorioImpl
         entity.setActivo(activo);
         jpaRepository.save(entity);
     }
+
+	@Override
+	public Optional<Categoria> buscarPorNombre(String nombre) {
+	    return jpaRepository.findByNombre(nombre)
+	            .map(mapper::toDomain);
+	}
 }

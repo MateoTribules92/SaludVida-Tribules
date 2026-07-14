@@ -1,21 +1,20 @@
-package com.saludvida.farmacia.dominio.repositorio;
+package com.saludvida.farmacia.aplicacion.casosuso.entradas;
 
 import java.util.List;
 import java.util.Optional;
+
 import com.saludvida.farmacia.dominio.entidades.HistorialEstadoPedido;
 
-public interface IHistorialEstadoPedidoRepositorio {
+public interface IHistorialEstadoPedidoUseCase {
 	
-	  HistorialEstadoPedido guardar(HistorialEstadoPedido historial);
+	 HistorialEstadoPedido registrar(HistorialEstadoPedido historialEstadoPedido);
 
 	    Optional<HistorialEstadoPedido> buscarPorId(long id);
 
 	    List<HistorialEstadoPedido> buscarPorPedido(long idPedido);
 
-	    List<HistorialEstadoPedido> listarTodos();
-	    
 	    List<HistorialEstadoPedido> buscarPorUsuario(long idUsuario);
 
-	    
+	    List<HistorialEstadoPedido> listarTodos();
 
 }

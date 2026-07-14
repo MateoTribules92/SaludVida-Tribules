@@ -10,12 +10,16 @@ import com.saludvida.farmacia.infraestructura.persistencia.jpa.RutaPedidoJpa;
 public interface IRutaPedidoJpaRepository
         extends JpaRepository<RutaPedidoJpa, Integer> {
 
-    Optional<RutaPedidoJpa> findByPedido_IdPedido(Integer idPedido);
-
     List<RutaPedidoJpa>
         findByRuta_IdRutaOrderByOrdenEntregaAsc(Integer idRuta);
 
     boolean existsByPedido_IdPedido(Integer idPedido);
 
     long countByRuta_IdRuta(Integer idRuta);
+    
+    Optional<RutaPedidoJpa> findByRuta_IdRutaAndPedido_IdPedido(Integer idRuta, Integer idPedido);
+
+    List<RutaPedidoJpa> findByRuta_IdRuta(Integer idRuta);
+
+    List<RutaPedidoJpa> findByPedido_IdPedido(Integer idPedido);
 }

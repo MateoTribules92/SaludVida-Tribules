@@ -38,8 +38,8 @@ public final class RutaRepositorioImpl implements IRutaRepositorio {
     }
 
     @Override
-    public Optional<Ruta> buscarPorCodigo(String codigo) {
-        return jpaRepository.findByCodigoRuta(codigo)
+    public Optional<Ruta> buscarPorCodigoRuta(String codigoRuta) {
+        return jpaRepository.findByCodigoRuta(codigoRuta)
                 .map(mapper::toDomain);
     }
 
@@ -93,5 +93,15 @@ public final class RutaRepositorioImpl implements IRutaRepositorio {
 
         entity.setEstado(estado);
         jpaRepository.save(entity);
+    }
+    
+
+
+    @Override
+    public List<Ruta> buscarPorZona(String zona) {
+        return jpaRepository.findByZonaIgnoreCase(zona)
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
     }
 }

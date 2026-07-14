@@ -23,5 +23,9 @@ public interface IProductoRepositorio {
 	    List<Producto> buscarVencidos(LocalDate fecha);
 
 	    List<Producto> buscarProximosACaducar(LocalDate fechaLimite);
+	    
+	    List<Producto> buscarPorCategoria(long idCategoria);
+
+	    List<Producto> buscarPorProveedor(long idProveedor);
 
 }

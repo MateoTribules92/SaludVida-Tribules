@@ -37,10 +37,11 @@ public final class RutaPedidoRepositorioImpl
     }
 
     @Override
-    public Optional<RutaPedido> buscarPorPedido(long idPedido) {
-        return jpaRepository
-                .findByPedido_IdPedido(Math.toIntExact(idPedido))
-                .map(mapper::toDomain);
+    public List<RutaPedido> buscarPorPedido(long idPedido) {
+        return jpaRepository.findByPedido_IdPedido(Math.toIntExact(idPedido))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
     }
 
     @Override
@@ -56,4 +57,15 @@ public final class RutaPedidoRepositorioImpl
         return jpaRepository.findAll().stream()
                 .map(mapper::toDomain).toList();
     }
+    
+    @Override
+    public Optional<RutaPedido> buscarPorRutaYPedido(long idRuta, long idPedido) {
+        return jpaRepository.findByRuta_IdRutaAndPedido_IdPedido(
+                        Math.toIntExact(idRuta),
+                        Math.toIntExact(idPedido)
+                )
+                .map(mapper::toDomain);
+    }
+
+
 }

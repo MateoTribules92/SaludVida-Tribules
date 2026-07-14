@@ -1,4 +1,4 @@
-package com.saludvida.farmacia.dominio.repositorio;
+package com.saludvida.farmacia.aplicacion.casosuso.entradas;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,11 @@ import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.EstadoPedido;
 import com.saludvida.farmacia.dominio.entidades.Pedido;
 
-public interface IPedidoRepositorio {
+public interface IPedidoUseCase {
 	
-	 Pedido guardar(Pedido pedido);
+	 Pedido crear(Pedido pedido);
+
+	    Pedido actualizar(Pedido pedido);
 
 	    Optional<Pedido> buscarPorId(long id);
 
@@ -18,12 +20,12 @@ public interface IPedidoRepositorio {
 
 	    List<Pedido> buscarPorFarmacia(long idFarmacia);
 
+	    List<Pedido> buscarPorVendedor(long idVendedor);
+
 	    List<Pedido> buscarPorEstado(EstadoPedido estado);
 
 	    List<Pedido> listarTodos();
 
 	    void cambiarEstado(long id, EstadoPedido estado);
-	    
-	    List<Pedido> buscarPorVendedor(long idVendedor);
 
 }

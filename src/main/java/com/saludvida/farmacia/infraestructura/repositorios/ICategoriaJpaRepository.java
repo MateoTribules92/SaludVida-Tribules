@@ -15,4 +15,6 @@ public interface ICategoriaJpaRepository
     boolean existsByNombreIgnoreCase(String nombre);
 
     List<CategoriaJpa> findAllByActivoTrue();
+    
+    Optional<CategoriaJpa> findByNombre(String nombre);
 }

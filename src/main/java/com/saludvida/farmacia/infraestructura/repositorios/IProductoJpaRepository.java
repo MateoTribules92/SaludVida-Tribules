@@ -26,4 +26,6 @@ public interface IProductoJpaRepository
     List<ProductoJpa> findByFechaCaducidadBetween(
             LocalDate fechaInicial,
             LocalDate fechaFinal);
+    
+    
 }

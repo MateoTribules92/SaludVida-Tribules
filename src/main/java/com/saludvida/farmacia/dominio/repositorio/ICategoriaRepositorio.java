@@ -9,6 +9,8 @@ public interface ICategoriaRepositorio {
 	Categoria guardar(Categoria categoria);
 
     Optional<Categoria> buscarPorId(long id);
+    
+    Optional<Categoria> buscarPorNombre(String id);
 
     List<Categoria> listarTodos();
 

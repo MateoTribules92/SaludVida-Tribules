@@ -21,4 +21,6 @@ public interface IDetallePedidoJpaRepository
     boolean existsByPedido_IdPedidoAndProducto_IdProducto(
             Integer idPedido,
             Integer idProducto);
+    
+    List<DetallePedidoJpa> findByProducto_IdProducto(Integer idProducto);
 }

@@ -69,4 +69,12 @@ public final class InventarioRepositorioImpl
         return jpaRepository.findAll().stream()
                 .map(mapper::toDomain).toList();
     }
+    
+    @Override
+    public List<Inventario> buscarPorProducto(long idProducto) {
+        return jpaRepository.findByProducto_IdProducto(Math.toIntExact(idProducto))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }

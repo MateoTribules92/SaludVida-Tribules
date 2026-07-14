@@ -16,4 +16,6 @@ public interface IProveedorRepositorio {
 	    void cambiarEstadoActivo(long id, boolean activo);
 	    
 	    List<Proveedor> listarActivos();
+	    
+	    Optional<Proveedor> buscarPorRuc(String ruc);
 }

@@ -26,4 +26,6 @@ public interface IInventarioJpaRepository
         WHERE i.stock <= i.stockMinimo
         """)
     List<InventarioJpa> buscarInventariosConStockBajo();
+    
+    
 }

@@ -22,4 +22,6 @@ public interface IPedidoJpaRepository
     List<PedidoJpa> findByVendedor_IdUsuario(Integer idVendedor);
 
     List<PedidoJpa> findByEstado(EstadoPedido estado);
+    
+    
 }

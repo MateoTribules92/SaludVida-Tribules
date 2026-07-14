@@ -57,4 +57,10 @@ public final class ProveedorRepositorioImpl
         entity.setActivo(activo);
         jpaRepository.save(entity);
     }
+
+	@Override
+	public Optional<Proveedor> buscarPorRuc(String ruc) {
+	    return jpaRepository.findByRuc(ruc)
+	            .map(mapper::toDomain);
+	}
 }

@@ -10,11 +10,15 @@ public interface IRutaPedidoRepositorio {
 
 	    Optional<RutaPedido> buscarPorId(long id);
 
-	    Optional<RutaPedido> buscarPorPedido(long idPedido);
+	    List<RutaPedido> buscarPorPedido(long idPedido);
 
 	    List<RutaPedido> buscarPorRuta(long idRuta);
 
 	    List<RutaPedido> listarTodos();
+	    
+	    Optional<RutaPedido> buscarPorRutaYPedido(long idRuta, long idPedido);
+
+
 
 	  
 }

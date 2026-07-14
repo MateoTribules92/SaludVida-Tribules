@@ -16,4 +16,6 @@ public interface IHistorialEstadoPedidoJpaRepository
     List<HistorialEstadoPedidoJpa>
         findByUsuario_IdUsuarioOrderByFechaRegistroDesc(
             Integer idUsuario);
+    
+    List<HistorialEstadoPedidoJpa> findByUsuario_IdUsuario(Integer idUsuario);
 }

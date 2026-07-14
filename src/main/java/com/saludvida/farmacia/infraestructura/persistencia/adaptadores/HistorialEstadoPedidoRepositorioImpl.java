@@ -50,4 +50,12 @@ public final class HistorialEstadoPedidoRepositorioImpl
         return jpaRepository.findAll().stream()
                 .map(mapper::toDomain).toList();
     }
+    
+    @Override
+    public List<HistorialEstadoPedido> buscarPorUsuario(long idUsuario) {
+        return jpaRepository.findByUsuario_IdUsuario(Math.toIntExact(idUsuario))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }

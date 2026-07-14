@@ -32,4 +32,8 @@ public interface IRutaJpaRepository
             Integer idVehiculo,
             LocalDate fechaRuta,
             Collection<EstadoRuta> estados);
+    
+
+    
+    
 }

@@ -1,4 +1,4 @@
-package com.saludvida.farmacia.dominio.repositorio;
+package com.saludvida.farmacia.aplicacion.casosuso.entradas;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -7,9 +7,11 @@ import java.util.Optional;
 import com.saludvida.farmacia.dominio.entidades.EstadoRuta;
 import com.saludvida.farmacia.dominio.entidades.Ruta;
 
-public interface IRutaRepositorio {
+public interface IRutaUseCase {
 	
-	Ruta guardar(Ruta ruta);
+	Ruta crear(Ruta ruta);
+
+    Ruta actualizar(Ruta ruta);
 
     Optional<Ruta> buscarPorId(long id);
 

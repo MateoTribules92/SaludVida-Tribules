@@ -81,4 +81,20 @@ public final class ProductoRepositorioImpl
         entity.setActivo(activo);
         jpaRepository.save(entity);
     }
+
+    @Override
+    public List<Producto> buscarPorCategoria(long idCategoria) {
+        return jpaRepository.findByCategoria_IdCategoria(Math.toIntExact(idCategoria))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Producto> buscarPorProveedor(long idProveedor) {
+        return jpaRepository.findByProveedor_IdProveedor(Math.toIntExact(idProveedor))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }

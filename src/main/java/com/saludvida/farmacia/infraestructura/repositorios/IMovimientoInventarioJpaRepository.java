@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.saludvida.farmacia.dominio.entidades.TipoMovimiento;
 import com.saludvida.farmacia.infraestructura.persistencia.jpa.MovimientoInventarioJpa;
 
 public interface IMovimientoInventarioJpaRepository
@@ -16,4 +17,8 @@ public interface IMovimientoInventarioJpaRepository
     List<MovimientoInventarioJpa>
         findByUsuario_IdUsuarioOrderByFechaMovimientoDesc(
             Integer idUsuario);
+    
+    List<MovimientoInventarioJpa> findByUsuario_IdUsuario(Integer idUsuario);
+
+    List<MovimientoInventarioJpa> findByTipoMovimiento(TipoMovimiento tipoMovimiento);
 }

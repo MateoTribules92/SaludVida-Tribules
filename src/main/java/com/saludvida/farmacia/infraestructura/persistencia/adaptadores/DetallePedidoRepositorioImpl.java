@@ -48,4 +48,12 @@ public final class DetallePedidoRepositorioImpl
         return jpaRepository.findAll().stream()
                 .map(mapper::toDomain).toList();
     }
+    
+    @Override
+    public List<DetallePedido> buscarPorProducto(long idProducto) {
+        return jpaRepository.findByProducto_IdProducto(Math.toIntExact(idProducto))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }

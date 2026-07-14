@@ -78,4 +78,12 @@ public final class PedidoRepositorioImpl
         entity.setEstado(estado);
         jpaRepository.save(entity);
     }
+    
+    @Override
+    public List<Pedido> buscarPorVendedor(long idVendedor) {
+        return jpaRepository.findByVendedor_IdUsuario(Math.toIntExact(idVendedor))
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }
