@@ -45,3 +45,8 @@ El proyecto contempla los siguientes módulos:
 - PostgreSQL
 - pgAdmin
 - GitHub
+
+## Repositorios relacionados
+
+- Backend API REST: https://github.com/MateoTribules92/SaludVida-Tribules
+- Frontend Web: https://github.com/MateoTribules92/SaludVida-Frontend-Tribules
