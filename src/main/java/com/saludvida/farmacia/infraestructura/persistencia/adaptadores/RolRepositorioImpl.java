@@ -3,14 +3,14 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.Rol;
 import com.saludvida.farmacia.dominio.repositorio.IRolRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IRolJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IRolJpaRepository;
 
-@Repository
+
 public final class RolRepositorioImpl implements IRolRepositorio {
 
     private final IRolJpaRepository jpaRepository;

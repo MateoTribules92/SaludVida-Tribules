@@ -3,7 +3,7 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.EstadoVehiculo;
 import com.saludvida.farmacia.dominio.entidades.Vehiculo;
@@ -11,7 +11,7 @@ import com.saludvida.farmacia.dominio.repositorio.IVehiculoRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IVehiculoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IVehiculoJpaRepository;
 
-@Repository
+
 public final class VehiculoRepositorioImpl
         implements IVehiculoRepositorio {
 

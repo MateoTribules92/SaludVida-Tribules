@@ -3,7 +3,7 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.EstadoPedido;
 import com.saludvida.farmacia.dominio.entidades.Pedido;
@@ -11,7 +11,7 @@ import com.saludvida.farmacia.dominio.repositorio.IPedidoRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IPedidoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IPedidoJpaRepository;
 
-@Repository
+
 public final class PedidoRepositorioImpl
         implements IPedidoRepositorio {
 

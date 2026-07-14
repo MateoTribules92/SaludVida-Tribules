@@ -3,14 +3,14 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.Farmacia;
 import com.saludvida.farmacia.dominio.repositorio.IFarmaciaRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IFarmaciaJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IFarmaciaJpaRepository;
 
-@Repository
+
 public final class FarmaciaRepositorioImpl
         implements IFarmaciaRepositorio {
 

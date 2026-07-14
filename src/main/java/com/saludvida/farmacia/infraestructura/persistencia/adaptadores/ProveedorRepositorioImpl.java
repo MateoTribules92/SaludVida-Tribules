@@ -3,14 +3,14 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.Proveedor;
 import com.saludvida.farmacia.dominio.repositorio.IProveedorRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IProveedorJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IProveedorJpaRepository;
 
-@Repository
+
 public final class ProveedorRepositorioImpl
         implements IProveedorRepositorio {
 

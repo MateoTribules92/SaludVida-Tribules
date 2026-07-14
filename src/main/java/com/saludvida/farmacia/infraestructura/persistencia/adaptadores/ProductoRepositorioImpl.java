@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.Producto;
 import com.saludvida.farmacia.dominio.repositorio.IProductoRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IProductoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IProductoJpaRepository;
 
-@Repository
+
 public final class ProductoRepositorioImpl
         implements IProductoRepositorio {
 

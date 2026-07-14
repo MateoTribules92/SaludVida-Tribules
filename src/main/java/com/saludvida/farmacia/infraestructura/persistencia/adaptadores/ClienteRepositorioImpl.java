@@ -3,7 +3,7 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.ClasificacionCliente;
 import com.saludvida.farmacia.dominio.entidades.Cliente;
@@ -11,7 +11,7 @@ import com.saludvida.farmacia.dominio.repositorio.IClienteRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IClienteJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IClienteJpaRepository;
 
-@Repository
+
 public final class ClienteRepositorioImpl
         implements IClienteRepositorio {
 

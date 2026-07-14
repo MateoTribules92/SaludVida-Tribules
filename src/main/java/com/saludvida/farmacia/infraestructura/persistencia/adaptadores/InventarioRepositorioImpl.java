@@ -3,14 +3,14 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.Inventario;
 import com.saludvida.farmacia.dominio.repositorio.IInventarioRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IInventarioJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IInventarioJpaRepository;
 
-@Repository
+
 public final class InventarioRepositorioImpl
         implements IInventarioRepositorio {
 

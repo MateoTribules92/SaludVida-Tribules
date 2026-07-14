@@ -3,14 +3,14 @@ package com.saludvida.farmacia.infraestructura.persistencia.adaptadores;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.DetallePedido;
 import com.saludvida.farmacia.dominio.repositorio.IDetallePedidoRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IDetallePedidoJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IDetallePedidoJpaRepository;
 
-@Repository
+
 public final class DetallePedidoRepositorioImpl
         implements IDetallePedidoRepositorio {
 

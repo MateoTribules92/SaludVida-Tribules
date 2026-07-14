@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.saludvida.farmacia.dominio.entidades.EstadoRuta;
 import com.saludvida.farmacia.dominio.entidades.Ruta;
@@ -12,7 +12,7 @@ import com.saludvida.farmacia.dominio.repositorio.IRutaRepositorio;
 import com.saludvida.farmacia.infraestructura.persistencia.mapeadores.IRutaJpaMapper;
 import com.saludvida.farmacia.infraestructura.repositorios.IRutaJpaRepository;
 
-@Repository
+
 public final class RutaRepositorioImpl implements IRutaRepositorio {
 
     private final IRutaJpaRepository jpaRepository;
